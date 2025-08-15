@@ -1,0 +1,26 @@
+[
+  {
+    "emoji": "📱",
+    "title": "Smartphone Pro Max",
+    "price": 899.99,
+    "description": "El smartphone más avanzado con cámara de 108MP, procesador de última generación y batería de larga duración."
+  },
+  {
+    "emoji": "💻",
+    "title": "Laptop Gaming Ultra",
+    "price": 1299.99,
+    "description": "Laptop para gaming con RTX 4070, procesador Intel i7 y pantalla 144Hz. Perfecta para gamers profesionales."
+  },
+  {
+    "emoji": "🎧",
+    "title": "Auriculares Wireless Pro",
+    "price": 249.99,
+    "description": "Auriculares con cancelación de ruido activa, 30 horas de batería y calidad de sonido premium."
+  },
+  {
+    "emoji": "⚽️",
+    "title": "Pelota de futbol profesional",
+    "price": 29.99,
+    "description": "Pelota de fútbol de alta calidad, diseñada para jugadores profesionales. Material resistente y excelente agarre."
+  }
+]

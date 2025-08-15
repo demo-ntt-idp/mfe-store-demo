@@ -265,8 +265,9 @@
 
         <section class="products container" id="productos">
             <h2>Productos Destacados</h2>
-            <div class="products-grid">
-                <div class="product-card">
+            <div class="products-grid" id="products-container">
+
+                <!-- <div class="product-card">
                     <div class="product-image">📱</div>
                     <h3 class="product-title">Smartphone Pro Max</h3>
                     <div class="product-price">$899.99</div>
@@ -288,7 +289,7 @@
                     <div class="product-price">$249.99</div>
                     <p class="product-description">Auriculares con cancelación de ruido activa, 30 horas de batería y calidad de sonido premium.</p>
                     <button class="buy-button" onclick="comprar('Auriculares Wireless Pro')">Comprar Ahora</button>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -353,6 +354,42 @@
             const rate = scrolled * -0.5;
             hero.style.transform = `translateY(${rate}px)`;
         });
+    </script>
+    <script>
+        async function cargarProductos() {
+            try {
+                const response = await fetch('products.json');
+                if (!response.ok) throw new Error('No se pudo cargar el JSON');
+                const productos = await response.json();
+
+                const container = document.getElementById('products-container');
+                container.innerHTML = ''; // limpiar si hubiera contenido previo
+
+                productos.forEach(prod => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+
+                    card.innerHTML = `
+                        <div class="product-image">${prod.emoji}</div>
+                        <h3 class="product-title">${prod.title}</h3>
+                        <div class="product-price">$${prod.price.toLocaleString()}</div>
+                        <p class="product-description">${prod.description}</p>
+                        <button class="buy-button" onclick="comprar('${prod.title}')">Comprar Ahora</button>
+                    `;
+
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        cargarProductos();
+
+        // Función comprar se mantiene igual
+        function comprar(producto) {
+            alert(`¡Excelente elección! Has seleccionado: ${producto}\n\nEn una tienda real, esto te llevaría al carrito de compras.`);
+        }
     </script>
 </body>
 </html>
